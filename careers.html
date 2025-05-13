@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - PiInnovate Software Solutions</title>
+    <meta name="description" content="Join our team at PiInnovate Software Solutions. Explore current openings for software developers, data analysts, SAP consultants, and UI/UX designers.">
+    <meta property="og:title" content="Careers - PiInnovate Software Solutions">
+    <meta property="og:description" content="Join our team of innovators and build your career with exciting opportunities in technology.">
+    <meta property="og:image" content="assets/images/piinnovate-logo.png">
+    <meta property="og:url" content="https://piinnovate.com/careers.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <!-- Preload critical assets -->
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="js/main.js" as="script">
+    <style>
+        .job-listing {
+            margin-bottom: 2rem;
+        }
+        
+        .job-header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .job-content {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 0 0 var(--radius) var(--radius);
+            box-shadow: var(--shadow);
+            display: none;
+        }
+        
+        .job-content.active {
+            display: block;
+        }
+        
+        .job-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .job-meta-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .job-meta-item i {
+            margin-right: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .job-description ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .job-apply {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .benefit-card {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container flex justify-between items-center">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/piinnovate-logo.png" alt="PiInnovate Software Solutions Logo">
+                </a>
+            </div>
+            
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                    <li class="nav-item"><a href="why-choose-us.html" class="nav-link">Why Choose Us</a></li>
+                    <li class="nav-item"><a href="careers.html" class="nav-link">Careers</a></li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li class="nav-item quote-btn">
+                        <a href="contact.html#quote" class="btn btn-primary">Request a Quote</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="bg-primary text-white py-12">
+        <div class="container">
+            <h1>Careers at PiInnovate</h1>
+            <p class="text-lg">Join our team of innovators and build your career with exciting opportunities in technology.</p>
+        </div>
+    </section>
+
+    <!-- Why Join Us -->
+    <section class="py-16">
+        <div class="container">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="animate-on-scroll" data-animation="animate-slide-up">
+                    <h2>Why Join PiInnovate?</h2>
+                    <p>At PiInnovate, we believe in creating an environment where talented professionals can grow, innovate, and make a meaningful impact. We're not just looking for employees—we're looking for passionate individuals who want to be part of something bigger.</p>
+                    <p class="mt-4">When you join our team, you become part of a collaborative, diverse, and dynamic workplace where your ideas are valued and your professional development is prioritized.</p>
+                    
+                    <h3 class="mt-8 mb-4">What We Offer</h3>
+                    <ul class="feature-list">
+                        <li>Challenging projects with cutting-edge technologies</li>
+                        <li>Continuous learning and professional development opportunities</li>
+                        <li>Flexible work arrangements</li>
+                        <li>Competitive compensation and benefits</li>
+                        <li>Collaborative and inclusive work culture</li>
+                    </ul>
+                </div>
+                <div class="animate-on-scroll" data-animation="animate-fade-in">
+                    <img src="assets/images/careers/team-working.jpg" alt="Team at PiInnovate" class="rounded-lg shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Culture -->
+    <section class="section-bg py-16">
+        <div class="container">
+            <div class="text-center mb-12">
+                <h2>Our Culture</h2>
+                <p class="mx-auto" style="max-width: 700px;">We foster a culture of innovation, collaboration, and continuous improvement.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Culture 1 -->
+                <div class="card animate-on-scroll" data-animation="animate-slide-up">
+                    <div class="card-body text-center">
+                        <div class="card-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Innovation</h3>
+                        <p>We encourage creative thinking and new ideas. Our team is always exploring emerging technologies and finding innovative solutions to complex problems.</p>
+                    </div>
+                </div>
+                
+                <!-- Culture 2 -->
+                <div class="card animate-on-scroll" data-animation="animate-slide-up" style="animation-delay: 0.2s;">
+                    <div class="card-body text-center">
+                        <div class="card-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Collaboration</h3>
+                        <p>We believe in the power of teamwork. Our collaborative environment allows team members to learn from each other and achieve more together.</p>
+                    </div>
+                </div>
+                
+                <!-- Culture 3 -->
+                <div class="card animate-on-scroll" data-animation="animate-slide-up" style="animation-delay: 0.4s;">
+                    <div class="card-body text-center">
+                        <div class="card-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Continuous Learning</h3>
+                        <p>We invest in our team's growth. From workshops and certifications to mentorship programs, we provide resources for ongoing professional development.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="py-16">
+        <div class="container">
+            <div class="text-center mb-12">
+                <h2>Employee Benefits</h2>
+                <p class="mx-auto" style="max-width: 700px;">We offer a comprehensive benefits package to support your professional and personal well-being.</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <!-- Benefit 1 -->
+                <div class="benefit-card animate-on-scroll" data-animation="animate-fade-in">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Competitive Salary</h3>
+                    <p>We offer competitive compensation packages based on skills, experience, and industry standards.</p>
+                </div>
+                
+                <!-- Benefit 2 -->
+                <div class="benefit-card animate-on-scroll" data-animation="animate-fade-in" style="animation-delay: 0.1s;">
+                    <div class="benefit-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Health Insurance</h3>
+                    <p>Comprehensive health insurance coverage for you and your family.</p>
+                </div>
+                
+                <!-- Benefit 3 -->
+                <div class="benefit-card animate-on-scroll" data-animation="animate-fade-in" style="animation-delay: 0.2s;">
+                    <div class="benefit-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Flexible Work Hours</h3>
+                    <p>Maintain work-life balance with flexible scheduling options.</p>
+                </div>
+                
+                <!-- Benefit 4 -->
+                <div class="benefit-card animate-on-scroll" data-animation="animate-fade-in" style="animation-delay: 0.3s;">
+                    <div class="benefit-icon">
+                        <i class="fas fa-laptop-house"></i>
+                    </div>
+                    <h3>Remote Work Options</h3>
+                    <p>Work from home opportunities to support your lifestyle needs.</p>
+                </div>
+                
+                <!-- Benefit 5 -->
+                <div class="benefit-card animate-on-scroll" data-animation="animate-fade-in" style="animation-delay: 0.4s;">
+                    <div class="benefit-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Professional Development</h3>
+                    <p>Access to training, certifications, and conferences to enhance your skills.</p>
+                </div>
+                
+                <!-- Benefit 6 -->
+                <div class="benefit-card animate-on-scroll" data-animation="animate-fade-in" style="animation-delay: 0.5s;">
+                    <div class="benefit-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3>Paid Time Off</h3>
+                    <p>Generous vacation policy to rest, recharge, and pursue personal interests.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Openings -->
+    <section class="section-bg py-16">
+        <div class="container">
+            <div class="text-center mb-12">
+                <h2>Available Job Roles</h2>
+                <p class="mx-auto" style="max-width: 700px;">Explore current openings and find the role that matches your skills and career aspirations.</p>
+            </div>
+            
+            <div class="job-listings">
+                <!-- Software Developers Category -->
+                <div class="job-category">
+                    <div class="job-header">
+                        <h3>Software Developers</h3>
+                        <span class="job-toggle-icon">+</span>
+                    </div>
+                    <div class="job-content">
+                        <!-- Job 1 -->
+                        <div class="job-listing">
+                            <h4>Senior Full Stack Developer</h4>
+                            <div class="job-meta">
+                                <div class="job-meta-item">
+                                    <i class="fas fa-map-marker-alt"></i> Pune, India (Hybrid)
+                                </div>
+                                <div class="job-meta-item">
+                                    <i class="fas fa-clock"></i> Full-time
+                                </div>
+                                <div class="job-meta-item">
+                                    <i class="fas fa-briefcase"></i> 5+ years experience
+                                </div>
+                            </div>
+                            <div class="job-description">
+                                <p>We are looking for an experienced Full Stack Developer to join our team and help build robust, scalable applications for our clients.</p>
+                                <h5 class="mt-4 mb-2">Requirements:</h5>
+                                <ul>
+                                    <li>5+ years of experience in full stack development</li>
+                                    <li>Proficiency in React, Angular, or Vue.js</li>
+                                    <li>Strong knowledge of Node.js, Express, and MongoDB</li>
+                                    <li>Experience with RESTful APIs and microservices architecture</li>
+                                    <li>Good understanding of front-end technologies (HTML5, CSS3, JavaScript)</li>
+                                </ul>
+                            </div>
+                            <div class="job-apply">
+                                <a href="contact.html#careers" class="btn btn-primary">Apply Now</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Job 2 -->
+                        <div class="job-listing">
+                            <h4>Mobile App Developer</h4>
+                            <div class="job-meta">
+                                <div class="job-meta-item">
+                                    <i class="fas fa-map-marker-alt"></i> Remote
+                                </div>
+                                <div class="job-meta-item">
+                                    <i class="fas fa-clock"></i> Full-time
+                                </div>
+                                <div class="job-meta-item">
+                                    <i class="fas fa-briefcase"></i> 3+ years experience
+                                </div>
+                            </div>
+                            <div class="job-description">
+                                <p>We're seeking a talented Mobile App Developer to create innovative applications for iOS and Android platforms.</p>
+                                <h5 class="mt-4 mb-2">Requirements:</h5>
+                                <ul>
+                                    <li>3+ years of experience in mobile app development</li>
+                                    <li>Expertise in React Native or Flutter</li>
+                                    <li>Experience with native iOS (Swift) or Android (Kotlin) development</li>
+                                    <li>Understanding of app lifecycles and UI/UX principles</li>
+                                    <li>Knowledge of RESTful APIs and third-party integrations</li>
+                                </ul>
+                            </div>
+                            <div class="job-apply">
+                                <a href="contact.html#careers" class="btn btn-primary">Apply Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Data Analysts Category -->
+                <div class="job-category">
+                    <div class="job-header">
+                        <h3>Data Analysts</h3>
+                        <span class="job-toggle-icon">+</span>
+                    </div>
+                    <div class="job-content">
+                        <!-- Job 1 -->
+                        <div class="job-listing">
+                            <h4>Senior Data Analyst</h4>
+                            <div class="job-meta">
+                                <div class="job-meta-item">
+                                    <i class="fas fa-map-marker-alt"></i> Pune, India
+                                </div>
+                                <div class="job-meta-item">
+                                    <i class="fas fa-clock"></i> Full-time
+                                </div>
+                                <div class="job-meta-item">
+                                    <i class="fas fa-briefcase"></i> 4+ years experience
+                                </div>
+                            </div>
+                            <div class="job-description">
+                                <p>We are looking for a Senior Data Analyst to help our clients make data-driven decisions through insightful analysis and visualization.</p>
+                                <h5 class="mt-4 mb-2">Requirements:</h5>
+                                <ul>
+                                    <li>4+ years of experience in data analysis</li>
+                                    <li>Proficiency in Python, R, or SQL for data analysis</li>
+                                    <li>Experience with data visualization tools (Tableau, Power BI)</li>
+                                    <li>Strong statistical knowledge and analytical skills</li>
+                                    <li>Ability to translate complex data into actionable insights</li>
+                                </ul>
+                            </div>
+                            <div class="job-apply">
+                                <a href="contact.html#careers" class="btn btn-primary">Apply Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- SAP Consultants Category -->
+                <div class="job-category">
+                    <div class="job-header">
+                        <h3>SAP Consultants</h3>
+                        <span class="job-toggle-icon">+</span>
+                    </div>
+                    <div class="job-content">
+                        <!-- Job 1 -->
+                        <div class="job-listing">
+                            <h4>SAP FICO Consultant</h4>
+                            <div class="job-meta">
+                                <div class="job-meta-item">
+                                    <i class="fas fa-map-marker-alt"></i> Pune, India
+                                </div>
+                                <div class="job-meta-item">
+                                    <i class="fas fa-clock"></i> Full-time
+                                </div>
+                                <div class="job-meta-item">
+                                    <i class="fas fa-briefcase"></i> 5+ years experience
+                                </div>
+                            </div>
+                            <div class="job-description">
+                                <p>We are seeking an experienced SAP FICO Consultant to provide implementation support and training to our clients.</p>
+                                <h5 class="mt-4 mb-2">Requirements:</h5>
+                                <ul>
+                                    <li>5+ years of experience in SAP FICO implementation</li>
+                                    <li>Strong understanding of financial accounting and controlling modules</li>
+                                    <li>Experience with SAP S/4HANA Finance</li>
+                                    <li>Knowledge of integration with other SAP modules</li>
+                                    <li>Excellent communication and client management skills</li>
+                                </ul>
+                            </div>
+                            <div class="job-apply">
+                                <a href="contact.html#careers" class="btn btn-primary">Apply Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- UI/UX Designers Category -->
+                <div class="job-category">
+                    <div class="job-header">
+                        <h3>UI/UX Designers</h3>
+                        <span class="job-toggle-icon">+</span>
+                    </div>
+                    <div class="job-content">
+                        <!-- Job 1 -->
+                        <div class="job-listing">
+                            <h4>Senior UI/UX Designer</h4>
+                            <div class="job-meta">
+                                <div class="job-meta-item">
+                                    <i class="fas fa-map-marker-alt"></i> Remote
+                                </div>
+                                <div class="job-meta-item">
+                                    <i class="fas fa-clock"></i> Full-time
+                                </div>
+                                <div class="job-meta-item">
+                                    <i class="fas fa-briefcase"></i> 4+ years experience
+                                </div>
+                            </div>
+                            <div class="job-description">
+                                <p>We're looking for a talented UI/UX Designer to create engaging user experiences and visually appealing interfaces for our digital products.</p>
+                                <h5 class="mt-4 mb-2">Requirements:</h5>
+                                <ul>
+                                    <li>4+ years of experience in UI/UX design</li>
+                                    <li>Proficiency in design tools (Figma, Adobe XD, Sketch)</li>
+                                    <li>Strong portfolio demonstrating UI/UX projects</li>
+                                    <li>Understanding of user-centered design principles</li>
+                                    <li>Experience with responsive design and mobile-first approaches</li>
+                                </ul>
+                            </div>
+                            <div class="job-apply">
+                                <a href="contact.html#careers" class="btn btn-primary">Apply Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Process -->
+    <section class="py-16">
+        <div class="container">
+            <div class="text-center mb-12">
+                <h2>Our Application Process</h2>
+                <p class="mx-auto" style="max-width: 700px;">We've designed a straightforward process to help us find the right talent for our team.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                <!-- Step 1 -->
+                <div class="animate-on-scroll" data-animation="animate-slide-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>1. Application</h3>
+                    <p>Submit your resume and cover letter through our careers form.</p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="animate-on-scroll" data-animation="animate-slide-up" style="animation-delay: 0.2s;">
+                    <div class="feature-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>2. Initial Screening</h3>
+                    <p>Phone interview to discuss your experience and expectations.</p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="animate-on-scroll" data-animation="animate-slide-up" style="animation-delay: 0.4s;">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>3. Technical Assessment</h3>
+                    <p>Demonstrate your skills through a technical assignment or coding challenge.</p>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="animate-on-scroll" data-animation="animate-slide-up" style="animation-delay: 0.6s;">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>4. Final Interview</h3>
+                    <p>Meet with the team to discuss culture fit and future growth opportunities.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <p class="mb-4">Don't see a position that matches your skills? We're always looking for talented individuals to join our team.</p>
+                <a href="contact.html#careers" class="btn btn-primary">Submit Your Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-primary text-white">
+        <div class="container text-center">
+            <h2 class="mb-4">Ready to Take the Next Step in Your Career?</h2>
+            <p class="mx-auto mb-8" style="max-width: 700px;">Discover exciting opportunities to grow, learn, and make an impact at PiInnovate.</p>
+            <a href="contact.html#careers" class="btn btn-lg btn-outline">Apply Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <h3 class="footer-heading">PiInnovate Software Solutions</h3>
+                    <p>Plot No. 21, MIDC Hinjewadi,<br>Pune, Maharashtra, India</p>
+                    <p class="mt-4">Phone: +91-9326196831<br>Email: info@piinnovate.com</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <ul class="footer-list">
+                        <li class="footer-item"><a href="index.html" class="footer-link">Home</a></li>
+                        <li class="footer-item"><a href="about.html" class="footer-link">About Us</a></li>
+                        <li class="footer-item"><a href="services.html" class="footer-link">Services</a></li>
+                        <li class="footer-item"><a href="portfolio.html" class="footer-link">Portfolio</a></li>
+                        <li class="footer-item"><a href="careers.html" class="footer-link">Careers</a></li>
+                        <li class="footer-item"><a href="contact.html" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h3 class="footer-heading">Our Services</h3>
+                    <ul class="footer-list">
+                        <li class="footer-item"><a href="services.html#software-development" class="footer-link">Custom Software Development</a></li>
+                        <li class="footer-item"><a href="services.html#mobile-web" class="footer-link">Mobile & Web Apps</a></li>
+                        <li class="footer-item"><a href="services.html#digital-marketing" class="footer-link">Digital Marketing</a></li>
+                        <li class="footer-item"><a href="services.html#recruitment" class="footer-link">Talent Recruitment</a></li>
+                        <li class="footer-item"><a href="services.html#sap-training" class="footer-link">SAP Training</a></li>
+                        <li class="footer-item"><a href="services.html#it-consulting" class="footer-link">IT Consulting</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Newsletter -->
+                <div>
+                    <h3 class="footer-heading">Subscribe for Updates</h3>
+                    <p>Get the latest insights, tips, and updates delivered to your inbox.</p>
+                    <form class="newsletter-form mt-4">
+                        <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 PiInnovate Software Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>

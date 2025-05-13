@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - PiInnovate Software Solutions</title>
+    <meta name="description" content="Explore our project portfolio showcasing successful implementations of custom software, mobile apps, web applications, and IT solutions for clients across industries.">
+    <meta property="og:title" content="Portfolio - PiInnovate Software Solutions">
+    <meta property="og:description" content="View our case studies showcasing how we've helped businesses achieve their goals through innovative technology solutions.">
+    <meta property="og:image" content="assets/images/piinnovate-logo.png">
+    <meta property="og:url" content="https://piinnovate.com/portfolio.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <!-- Preload critical assets -->
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="js/main.js" as="script">
+    <style>
+        .portfolio-nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        
+        .portfolio-nav button {
+            background: none;
+            border: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--dark);
+            transition: var(--transition);
+            border-bottom: 2px solid transparent;
+        }
+        
+        .portfolio-nav button.active, .portfolio-nav button:hover {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .portfolio-item-details {
+            display: none;
+        }
+        
+        .portfolio-item-details.active {
+            display: block;
+        }
+        
+        .case-study-image {
+            height: 300px;
+            object-fit: cover;
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            width: 100%;
+        }
+        
+        .case-study-details {
+            padding: 2rem;
+        }
+        
+        .client-logo {
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+        
+        .tech-tag {
+            display: inline-block;
+            background-color: var(--light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin-top: 2rem;
+        }
+        
+        .pagination li {
+            margin: 0 0.25rem;
+        }
+        
+        .pagination a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--white);
+            color: var(--dark);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .pagination a:hover, .pagination a.active {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container flex justify-between items-center">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/piinnovate-logo.png" alt="PiInnovate Software Solutions Logo">
+                </a>
+            </div>
+            
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                    <li class="nav-item"><a href="why-choose-us.html" class="nav-link">Why Choose Us</a></li>
+                    <li class="nav-item"><a href="careers.html" class="nav-link">Careers</a></li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li class="nav-item quote-btn">
+                        <a href="contact.html#quote" class="btn btn-primary">Request a Quote</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="bg-primary text-white py-12">
+        <div class="container">
+            <h1>Our Portfolio</h1>
+            <p class="text-lg">Discover how we've helped businesses achieve their goals through innovative technology solutions.</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Navigation -->
+    <section class="py-12">
+        <div class="container">
+            <div class="portfolio-nav">
+                <button class="active" data-filter="all">All Projects</button>
+                <button data-filter="software">Software Development</button>
+                <button data-filter="mobile">Mobile Apps</button>
+                <button data-filter="web">Web Applications</button>
+                <button data-filter="consulting">IT Consulting</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Case Studies -->
+    <section class="section-bg py-16">
+        <div class="container">
+            <div class="text-center mb-12">
+                <h2>Featured Case Studies</h2>
+                <p class="mx-auto" style="max-width: 700px;">These projects showcase our expertise, innovation, and the tangible results we deliver for our clients.</p>
+            </div>
+            
+            <!-- Case Study Detailed View -->
+            <div class="portfolio-item-details active" id="medinexus">
+                <div class="card">
+                    <img src="assets/images/case-studies/medinexus-banner.jpg" alt="MediNexus Healthcare Platform" class="case-study-image">
+                    <div class="case-study-details">
+                        <img src="assets/images/clients/client-1-logo.png" alt="MediNexus Logo" class="client-logo">
+                        <h3>MediNexus Healthcare Platform</h3>
+                        
+                        <div class="my-4">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                        
+                        <h4 class="mt-8">Challenge</h4>
+                        <p>MediNexus Healthcare Group needed a centralized platform to connect healthcare providers with patients and streamline medical record management. Their existing systems were fragmented, leading to inefficiencies and coordination challenges across multiple facilities.</p>
+                        
+                        <h4 class="mt-4">Solution</h4>
+                        <p>We developed a comprehensive healthcare platform consisting of:</p>
+                        <ul class="ml-4 my-2">
+                            <li>A responsive web application built with React and Next.js for healthcare providers</li>
+                            <li>Native mobile apps for iOS and Android using React Native for patients</li>
+                            <li>A secure backend system with real-time appointment scheduling</li>
+                            <li>HIPAA-compliant electronic health records (EHR) system</li>
+                            <li>Integrated telemedicine capabilities with video conferencing</li>
+                            <li>Advanced analytics dashboard for administrators</li>
+                        </ul>
+                        
+                        <h4 class="mt-4">Outcome</h4>
+                        <p>The implementation of the MediNexus platform resulted in:</p>
+                        <ul class="ml-4 my-2">
+                            <li>40% reduction in administrative tasks</li>
+                            <li>65% increase in patient satisfaction scores</li>
+                            <li>30% improvement in resource allocation</li>
+                            <li>Secure access to medical records across all facilities</li>
+                            <li>Successful integration with existing laboratory and pharmacy systems</li>
+                        </ul>
+                        
+                        <div class="flex flex-wrap gap-4 mt-8">
+                            <a href="#" class="btn btn-primary">View Live Demo</a>
+                            <a href="contact.html" class="btn btn-outline">Discuss a Similar Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="portfolio-item-details" id="fooddelight">
+                <div class="card">
+                    <img src="assets/images/case-studies/fooddelight-banner.jpg" alt="FoodDelight Restaurant Management System" class="case-study-image">
+                    <div class="case-study-details">
+                        <img src="assets/images/clients/client-2-logo.png" alt="FoodDelight Logo" class="client-logo">
+                        <h3>FoodDelight Restaurant Management System</h3>
+                        
+                        <div class="my-4">
+                            <span class="tech-tag">Angular</span>
+                            <span class="tech-tag">Express.js</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Firebase</span>
+                        </div>
+                        
+                        <h4 class="mt-8">Challenge</h4>
+                        <p>FoodDelight, a chain of fine dining establishments, was struggling with inefficient operations, inventory management issues, and inconsistent customer experience across locations. They needed a unified system to streamline operations and enhance the dining experience.</p>
+                        
+                        <h4 class="mt-4">Solution</h4>
+                        <p>We developed a custom restaurant management system that included:</p>
+                        <ul class="ml-4 my-2">
+                            <li>Digital menu and ordering system with real-time kitchen notifications</li>
+                            <li>Integrated inventory tracking and automated reordering</li>
+                            <li>Staff scheduling and performance monitoring tools</li>
+                            <li>Customer loyalty program with personalized offers</li>
+                            <li>Table reservation system with custom seating arrangements</li>
+                            <li>Comprehensive reporting and analytics dashboard</li>
+                        </ul>
+                        
+                        <h4 class="mt-4">Outcome</h4>
+                        <p>The system implementation resulted in:</p>
+                        <ul class="ml-4 my-2">
+                            <li>30% increase in operational efficiency</li>
+                            <li>25% growth in repeat customer visits</li>
+                            <li>20% reduction in food waste</li>
+                            <li>15% improvement in staff productivity</li>
+                            <li>Consistent dining experience across all locations</li>
+                        </ul>
+                        
+                        <div class="flex flex-wrap gap-4 mt-8">
+                            <a href="#" class="btn btn-primary">View Live Demo</a>
+                            <a href="contact.html" class="btn btn-outline">Discuss a Similar Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="portfolio-item-details" id="educonnect">
+                <div class="card">
+                    <img src="assets/images/case-studies/educonnect-banner.jpg" alt="EduConnect Learning Platform" class="case-study-image">
+                    <div class="case-study-details">
+                        <img src="assets/images/clients/client-3-logo.png" alt="EduConnect Logo" class="client-logo">
+                        <h3>EduConnect Learning Platform</h3>
+                        
+                        <div class="my-4">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">WebRTC</span>
+                            <span class="tech-tag">AWS</span>
+                        </div>
+                        
+                        <h4 class="mt-8">Challenge</h4>
+                        <p>EduConnect wanted to develop an interactive e-learning platform to connect students with tutors for personalized education. Their goal was to provide an engaging, accessible learning experience with customized lesson plans and real-time interaction.</p>
+                        
+                        <h4 class="mt-4">Solution</h4>
+                        <p>We built a comprehensive learning management system with:</p>
+                        <ul class="ml-4 my-2">
+                            <li>High-quality video conferencing with screen sharing and virtual whiteboard</li>
+                            <li>Customizable course creation and management tools</li>
+                            <li>Student progress tracking and performance analytics</li>
+                            <li>Secure payment processing for tutor services</li>
+                            <li>Resource library with searchable content</li>
+                            <li>Automated scheduling and reminder system</li>
+                        </ul>
+                        
+                        <h4 class="mt-4">Outcome</h4>
+                        <p>The EduConnect platform achieved:</p>
+                        <ul class="ml-4 my-2">
+                            <li>10,000+ active students and 500+ tutors within the first year</li>
+                            <li>92% satisfaction rate among users</li>
+                            <li>40% average improvement in student academic performance</li>
+                            <li>Successful expansion to international markets</li>
+                            <li>Featured in multiple educational technology publications</li>
+                        </ul>
+                        
+                        <div class="flex flex-wrap gap-4 mt-8">
+                            <a href="#" class="btn btn-primary">View Live Demo</a>
+                            <a href="contact.html" class="btn btn-outline">Discuss a Similar Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="portfolio-item-details" id="supplychainpro">
+                <div class="card">
+                    <img src="assets/images/case-studies/supplychainpro-banner.jpg" alt="SupplyChain Pro Logistics Solution" class="case-study-image">
+                    <div class="case-study-details">
+                        <img src="assets/images/clients/client-4-logo.png" alt="SupplyChain Pro Logo" class="client-logo">
+                        <h3>SupplyChain Pro Logistics Solution</h3>
+                        
+                        <div class="my-4">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">IoT</span>
+                        </div>
+                        
+                        <h4 class="mt-8">Challenge</h4>
+                        <p>A global manufacturing company needed to streamline their complex supply chain operations, reduce logistics costs, and improve delivery times. Their existing system was unable to handle their growing distribution network and lacked real-time visibility.</p>
+                        
+                        <h4 class="mt-4">Solution</h4>
+                        <p>We developed an end-to-end supply chain management system featuring:</p>
+                        <ul class="ml-4 my-2">
+                            <li>Real-time tracking of shipments with IoT integration</li>
+                            <li>Predictive analytics for inventory management</li>
+                            <li>Supplier management and performance evaluation</li>
+                            <li>Automated procurement and reordering processes</li>
+                            <li>Route optimization for delivery efficiency</li>
+                            <li>Comprehensive reporting and compliance documentation</li>
+                        </ul>
+                        
+                        <h4 class="mt-4">Outcome</h4>
+                        <p>The implementation resulted in:</p>
+                        <ul class="ml-4 my-2">
+                            <li>35% reduction in logistics costs</li>
+                            <li>50% improvement in delivery times</li>
+                            <li>28% decrease in inventory holding costs</li>
+                            <li>Near real-time visibility across the entire supply chain</li>
+                            <li>Improved supplier relationships and performance</li>
+                        </ul>
+                        
+                        <div class="flex flex-wrap gap-4 mt-8">
+                            <a href="#" class="btn btn-primary">View Live Demo</a>
+                            <a href="contact.html" class="btn btn-outline">Discuss a Similar Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Case Study Navigation -->
+            <div class="flex justify-center mt-8">
+                <button class="btn btn-outline mx-2 case-nav active" data-case="medinexus">MediNexus</button>
+                <button class="btn btn-outline mx-2 case-nav" data-case="fooddelight">FoodDelight</button>
+                <button class="btn btn-outline mx-2 case-nav" data-case="educonnect">EduConnect</button>
+                <button class="btn btn-outline mx-2 case-nav" data-case="supplychainpro">SupplyChain Pro</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Grid -->
+    <section class="py-16">
+        <div class="container">
+            <div class="text-center mb-12">
+                <h2>All Projects</h2>
+                <p class="mx-auto" style="max-width: 700px;">Browse our complete portfolio of successful projects across various industries and technologies.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="card animate-on-scroll" data-animation="animate-fade-in" data-category="software web">
+                    <img src="assets/images/projects/project-1.jpg" alt="E-commerce Platform" class="case-study-image">
+                    <div class="p-6">
+                        <h3>E-commerce Platform</h3>
+                        <p class="mb-4">Custom B2B e-commerce solution with integrated inventory management and CRM capabilities.</p>
+                        <div class="mb-4">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="card animate-on-scroll" data-animation="animate-fade-in" data-category="mobile">
+                    <img src="assets/images/projects/project-2.jpg" alt="Fitness Tracking App" class="case-study-image">
+                    <div class="p-6">
+                        <h3>Fitness Tracking App</h3>
+                        <p class="mb-4">Mobile application for workout planning, progress tracking, and nutrition management.</p>
+                        <div class="mb-4">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">MySQL</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="card animate-on-scroll" data-animation="animate-fade-in" data-category="software consulting">
+                    <img src="assets/images/projects/project-3.jpg" alt="Banking Analytics System" class="case-study-image">
+                    <div class="p-6">
+                        <h3>Banking Analytics System</h3>
+                        <p class="mb-4">Advanced data analytics platform for financial institutions with predictive modeling capabilities.</p>
+                        <div class="mb-4">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="card animate-on-scroll" data-animation="animate-fade-in" data-category="web">
+                    <img src="assets/images/projects/project-4.jpg" alt="Property Management Portal" class="case-study-image">
+                    <div class="p-6">
+                        <h3>Property Management Portal</h3>
+                        <p class="mb-4">Web-based system for real estate companies to manage properties, tenants, and maintenance requests.</p>
+                        <div class="mb-4">
+                            <span class="tech-tag">Angular</span>
+                            <span class="tech-tag">.NET Core</span>
+                            <span class="tech-tag">SQL Server</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="card animate-on-scroll" data-animation="animate-fade-in" data-category="mobile software">
+                    <img src="assets/images/projects/project-5.jpg" alt="Fleet Management System" class="case-study-image">
+                    <div class="p-6">
+                        <h3>Fleet Management System</h3>
+                        <p class="mb-4">Comprehensive solution for tracking vehicles, optimizing routes, and managing maintenance schedules.</p>
+                        <div class="mb-4">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="card animate-on-scroll" data-animation="animate-fade-in" data-category="consulting software">
+                    <img src="assets/images/projects/project-6.jpg" alt="HR Management Suite" class="case-study-image">
+                    <div class="p-6">
+                        <h3>HR Management Suite</h3>
+                        <p class="mb-4">Integrated HR system for employee onboarding, performance management, and payroll processing.</p>
+                        <div class="mb-4">
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Oracle</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Details</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <ul class="pagination">
+                <li><a href="#" class="active">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#"><i class="fas fa-chevron-right"></i></a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-primary text-white">
+        <div class="container text-center">
+            <h2 class="mb-4">Ready to Start Your Project?</h2>
+            <p class="mx-auto mb-8" style="max-width: 700px;">Let's discuss how we can help you achieve your business goals with innovative technology solutions.</p>
+            <a href="contact.html" class="btn btn-lg btn-outline">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <h3 class="footer-heading">PiInnovate Software Solutions</h3>
+                    <p>Plot No. 21, MIDC Hinjewadi,<br>Pune, Maharashtra, India</p>
+                    <p class="mt-4">Phone: +91-9326196831<br>Email: info@piinnovate.com</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <ul class="footer-list">
+                        <li class="footer-item"><a href="index.html" class="footer-link">Home</a></li>
+                        <li class="footer-item"><a href="about.html" class="footer-link">About Us</a></li>
+                        <li class="footer-item"><a href="services.html" class="footer-link">Services</a></li>
+                        <li class="footer-item"><a href="portfolio.html" class="footer-link">Portfolio</a></li>
+                        <li class="footer-item"><a href="careers.html" class="footer-link">Careers</a></li>
+                        <li class="footer-item"><a href="contact.html" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h3 class="footer-heading">Our Services</h3>
+                    <ul class="footer-list">
+                        <li class="footer-item"><a href="services.html#software-development" class="footer-link">Custom Software Development</a></li>
+                        <li class="footer-item"><a href="services.html#mobile-web" class="footer-link">Mobile & Web Apps</a></li>
+                        <li class="footer-item"><a href="services.html#digital-marketing" class="footer-link">Digital Marketing</a></li>
+                        <li class="footer-item"><a href="services.html#recruitment" class="footer-link">Talent Recruitment</a></li>
+                        <li class="footer-item"><a href="services.html#sap-training" class="footer-link">SAP Training</a></li>
+                        <li class="footer-item"><a href="services.html#it-consulting" class="footer-link">IT Consulting</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Newsletter -->
+                <div>
+                    <h3 class="footer-heading">Subscribe for Updates</h3>
+                    <p>Get the latest insights, tips, and updates delivered to your inbox.</p>
+                    <form class="newsletter-form mt-4">
+                        <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 PiInnovate Software Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Case Study Navigation
+            const caseNavButtons = document.querySelectorAll('.case-nav');
+            const caseStudies = document.querySelectorAll('.portfolio-item-details');
+            
+            caseNavButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const caseId = this.getAttribute('data-case');
+                    
+                    // Update active button
+                    caseNavButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show selected case study
+                    caseStudies.forEach(study => {
+                        if (study.id === caseId) {
+                            study.classList.add('active');
+                        } else {
+                            study.classList.remove('active');
+                        }
+                    });
+                });
+            });
+            
+            // Portfolio Filtering
+            const filterButtons = document.querySelectorAll('[data-filter]');
+            const portfolioItems = document.querySelectorAll('[data-category]');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter projects
+                    portfolioItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category').includes(filter)) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

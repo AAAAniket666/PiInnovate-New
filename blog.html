@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - PiInnovate Software Solutions</title>
+    <meta name="description" content="Read the latest insights, technical tutorials, and company news from PiInnovate Software Solutions on our blog.">
+    <meta property="og:title" content="Blog - PiInnovate Software Solutions">
+    <meta property="og:description" content="Explore industry insights, technical tutorials, and company news from the PiInnovate team.">
+    <meta property="og:image" content="assets/images/piinnovate-logo.png">
+    <meta property="og:url" content="https://piinnovate.com/blog.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <!-- Preload critical assets -->
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="js/main.js" as="script">
+    <style>
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .blog-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .blog-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: var(--transition);
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .blog-image {
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: var(--radius-lg);
+            border-top-right-radius: var(--radius-lg);
+        }
+        
+        .blog-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .blog-meta {
+            display: flex;
+            gap: 1rem;
+            color: var(--gray);
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .blog-excerpt {
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .blog-categories {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-category {
+            display: inline-block;
+            background-color: var(--light);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .blog-sidebar {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+        }
+        
+        .sidebar-widget {
+            margin-bottom: 2rem;
+        }
+        
+        .sidebar-widget:last-child {
+            margin-bottom: 0;
+        }
+        
+        .sidebar-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light);
+        }
+        
+        .category-list, .recent-posts-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .category-list li, .recent-posts-list li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .category-list li a, .recent-posts-list li a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .category-list li a:hover, .recent-posts-list li a:hover {
+            padding-left: 0.5rem;
+        }
+        
+        .category-count {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.15rem 0.5rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+        }
+        
+        .recent-post-date {
+            font-size: 0.75rem;
+            color: var(--gray);
+        }
+        
+        .search-form {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: var(--radius) 0 0 var(--radius);
+            font-size: 1rem;
+        }
+        
+        .search-btn {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0 1.5rem;
+            border: none;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .search-btn:hover {
+            background-color: var(--primary-light);
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin-top: 2rem;
+        }
+        
+        .pagination li {
+            margin: 0 0.25rem;
+        }
+        
+        .pagination a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--white);
+            color: var(--dark);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .pagination a:hover, .pagination a.active {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container flex justify-between items-center">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/piinnovate-logo.png" alt="PiInnovate Software Solutions Logo">
+                </a>
+            </div>
+            
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                    <li class="nav-item"><a href="why-choose-us.html" class="nav-link">Why Choose Us</a></li>
+                    <li class="nav-item"><a href="careers.html" class="nav-link">Careers</a></li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li class="nav-item quote-btn">
+                        <a href="contact.html#quote" class="btn btn-primary">Request a Quote</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="bg-primary text-white py-12">
+        <div class="container">
+            <h1>Blog</h1>
+            <p class="text-lg">Explore our insights, tutorials, and updates on technology and business.</p>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="py-16">
+        <div class="container">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Main Content -->
+                <div class="lg:col-span-2">
+                    <!-- Search Mobile Only -->
+                    <div class="mb-8 lg:hidden">
+                        <form class="search-form">
+                            <input type="text" class="search-input" placeholder="Search articles...">
+                            <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+                    
+                    <!-- Blog Grid -->
+                    <div class="blog-grid">
+                        <!-- Blog Post 1 -->
+                        <div class="card blog-card animate-on-scroll" data-animation="animate-fade-in">
+                            <img src="assets/images/blog/ai-software-development.jpg" alt="AI in Software Development" class="blog-image">
+                            <div class="blog-content">
+                                <div class="blog-categories">
+                                    <span class="blog-category">Industry Insights</span>
+                                    <span class="blog-category">Technology</span>
+                                </div>
+                                <h3><a href="blog-single.html">The Future of AI in Software Development</a></h3>
+                                <div class="blog-meta">
+                                    <span><i class="far fa-user"></i> Priya Patel</span>
+                                    <span><i class="far fa-calendar"></i> May 10, 2025</span>
+                                </div>
+                                <div class="blog-excerpt">
+                                    <p>Artificial Intelligence is revolutionizing how software is developed, tested, and deployed. In this article, we explore the transformative impact of AI on software development processes and what it means for the future of the industry.</p>
+                                </div>
+                                <a href="blog-single.html" class="btn btn-outline">Read More</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Blog Post 2 -->
+                        <div class="card blog-card animate-on-scroll" data-animation="animate-fade-in" style="animation-delay: 0.1s;">
+                            <img src="assets/images/blog/react-best-practices.jpg" alt="React Best Practices" class="blog-image">
+                            <div class="blog-content">
+                                <div class="blog-categories">
+                                    <span class="blog-category">Technical Tutorials</span>
+                                    <span class="blog-category">Web Development</span>
+                                </div>
+                                <h3><a href="blog-single.html">10 React Best Practices to Improve Your Code</a></h3>
+                                <div class="blog-meta">
+                                    <span><i class="far fa-user"></i> Amit Desai</span>
+                                    <span><i class="far fa-calendar"></i> May 5, 2025</span>
+                                </div>
+                                <div class="blog-excerpt">
+                                    <p>React has become one of the most popular libraries for building user interfaces. In this tutorial, we share 10 best practices that will help you write cleaner, more maintainable React code and avoid common pitfalls.</p>
+                                </div>
+                                <a href="blog-single.html" class="btn btn-outline">Read More</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Blog Post 3 -->
+                        <div class="card blog-card animate-on-scroll" data-animation="animate-fade-in" style="animation-delay: 0.2s;">
+                            <img src="assets/images/blog/digital-transformation.jpg" alt="Digital Transformation" class="blog-image">
+                            <div class="blog-content">
+                                <div class="blog-categories">
+                                    <span class="blog-category">Industry Insights</span>
+                                    <span class="blog-category">Business Strategy</span>
+                                </div>
+                                <h3><a href="blog-single.html">Digital Transformation: Strategies for Success</a></h3>
+                                <div class="blog-meta">
+                                    <span><i class="far fa-user"></i> Rajiv Sharma</span>
+                                    <span><i class="far fa-calendar"></i> April 28, 2025</span>
+                                </div>
+                                <div class="blog-excerpt">
+                                    <p>Digital transformation is more than just adopting new technologies—it's about fundamentally changing how your business operates. Learn about proven strategies that can help your organization successfully navigate the digital transformation journey.</p>
+                                </div>
+                                <a href="blog-single.html" class="btn btn-outline">Read More</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Blog Post 4 -->
+                        <div class="card blog-card animate-on-scroll" data-animation="animate-fade-in">
+                            <img src="assets/images/blog/mobile-app-security.jpg" alt="Mobile App Security" class="blog-image">
+                            <div class="blog-content">
+                                <div class="blog-categories">
+                                    <span class="blog-category">Technical Tutorials</span>
+                                    <span class="blog-category">Security</span>
+                                </div>
+                                <h3><a href="blog-single.html">Essential Security Practices for Mobile App Development</a></h3>
+                                <div class="blog-meta">
+                                    <span><i class="far fa-user"></i> Ananya Gupta</span>
+                                    <span><i class="far fa-calendar"></i> April 20, 2025</span>
+                                </div>
+                                <div class="blog-excerpt">
+                                    <p>Security is a critical aspect of mobile app development that cannot be overlooked. This tutorial covers essential security practices that developers should implement to protect user data and prevent common vulnerabilities in mobile applications.</p>
+                                </div>
+                                <a href="blog-single.html" class="btn btn-outline">Read More</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Blog Post 5 -->
+                        <div class="card blog-card animate-on-scroll" data-animation="animate-fade-in" style="animation-delay: 0.1s;">
+                            <img src="assets/images/blog/sap-implementation.jpg" alt="SAP Implementation" class="blog-image">
+                            <div class="blog-content">
+                                <div class="blog-categories">
+                                    <span class="blog-category">Technical Tutorials</span>
+                                    <span class="blog-category">SAP</span>
+                                </div>
+                                <h3><a href="blog-single.html">Key Factors for Successful SAP Implementation</a></h3>
+                                <div class="blog-meta">
+                                    <span><i class="far fa-user"></i> Vikram Joshi</span>
+                                    <span><i class="far fa-calendar"></i> April 15, 2025</span>
+                                </div>
+                                <div class="blog-excerpt">
+                                    <p>Implementing SAP can be a complex process with many potential challenges. In this article, we discuss the key factors that contribute to successful SAP implementation and how to avoid common pitfalls that can derail your project.</p>
+                                </div>
+                                <a href="blog-single.html" class="btn btn-outline">Read More</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Blog Post 6 -->
+                        <div class="card blog-card animate-on-scroll" data-animation="animate-fade-in" style="animation-delay: 0.2s;">
+                            <img src="assets/images/blog/company-expansion.jpg" alt="Company Expansion" class="blog-image">
+                            <div class="blog-content">
+                                <div class="blog-categories">
+                                    <span class="blog-category">Company News</span>
+                                </div>
+                                <h3><a href="blog-single.html">PiInnovate Announces Expansion to New Markets</a></h3>
+                                <div class="blog-meta">
+                                    <span><i class="far fa-user"></i> Rajiv Sharma</span>
+                                    <span><i class="far fa-calendar"></i> April 10, 2025</span>
+                                </div>
+                                <div class="blog-excerpt">
+                                    <p>We're excited to announce our expansion into new markets, bringing our innovative technology solutions to more businesses across the globe. Learn about our growth plans and how they will enhance our service offerings for clients.</p>
+                                </div>
+                                <a href="blog-single.html" class="btn btn-outline">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <ul class="pagination">
+                        <li><a href="#" class="active">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i></a></li>
+                    </ul>
+                </div>
+                
+                <!-- Sidebar -->
+                <div class="lg:col-span-1">
+                    <div class="blog-sidebar">
+                        <!-- Search Widget -->
+                        <div class="sidebar-widget hidden lg:block">
+                            <h3 class="sidebar-title">Search</h3>
+                            <form class="search-form">
+                                <input type="text" class="search-input" placeholder="Search articles...">
+                                <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
+                            </form>
+                        </div>
+                        
+                        <!-- Categories Widget -->
+                        <div class="sidebar-widget">
+                            <h3 class="sidebar-title">Categories</h3>
+                            <ul class="category-list">
+                                <li><a href="#">Industry Insights <span class="category-count">8</span></a></li>
+                                <li><a href="#">Technical Tutorials <span class="category-count">12</span></a></li>
+                                <li><a href="#">Company News <span class="category-count">5</span></a></li>
+                                <li><a href="#">Case Studies <span class="category-count">7</span></a></li>
+                                <li><a href="#">Technology Trends <span class="category-count">9</span></a></li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Recent Posts Widget -->
+                        <div class="sidebar-widget">
+                            <h3 class="sidebar-title">Recent Posts</h3>
+                            <ul class="recent-posts-list">
+                                <li>
+                                    <a href="blog-single.html">
+                                        <div>
+                                            <h4 class="text-base">The Future of AI in Software Development</h4>
+                                            <span class="recent-post-date">May 10, 2025</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="blog-single.html">
+                                        <div>
+                                            <h4 class="text-base">10 React Best Practices to Improve Your Code</h4>
+                                            <span class="recent-post-date">May 5, 2025</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="blog-single.html">
+                                        <div>
+                                            <h4 class="text-base">Digital Transformation: Strategies for Success</h4>
+                                            <span class="recent-post-date">April 28, 2025</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="blog-single.html">
+                                        <div>
+                                            <h4 class="text-base">Essential Security Practices for Mobile App Development</h4>
+                                            <span class="recent-post-date">April 20, 2025</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Tags Widget -->
+                        <div class="sidebar-widget">
+                            <h3 class="sidebar-title">Popular Tags</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <a href="#" class="blog-category">Software Development</a>
+                                <a href="#" class="blog-category">AI</a>
+                                <a href="#" class="blog-category">Mobile Apps</a>
+                                <a href="#" class="blog-category">Web Development</a>
+                                <a href="#" class="blog-category">React</a>
+                                <a href="#" class="blog-category">SAP</a>
+                                <a href="#" class="blog-category">Security</a>
+                                <a href="#" class="blog-category">Digital Transformation</a>
+                                <a href="#" class="blog-category">Technology</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-primary text-white">
+        <div class="container text-center">
+            <h2 class="mb-4">Stay Up-to-Date with the Latest Trends</h2>
+            <p class="mx-auto mb-8" style="max-width: 700px;">Subscribe to our newsletter to receive the latest articles, insights, and updates directly in your inbox.</p>
+            <form class="newsletter-form mx-auto" style="max-width: 500px;">
+                <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <h3 class="footer-heading">PiInnovate Software Solutions</h3>
+                    <p>Plot No. 21, MIDC Hinjewadi,<br>Pune, Maharashtra, India</p>
+                    <p class="mt-4">Phone: +91-9326196831<br>Email: info@piinnovate.com</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <ul class="footer-list">
+                        <li class="footer-item"><a href="index.html" class="footer-link">Home</a></li>
+                        <li class="footer-item"><a href="about.html" class="footer-link">About Us</a></li>
+                        <li class="footer-item"><a href="services.html" class="footer-link">Services</a></li>
+                        <li class="footer-item"><a href="portfolio.html" class="footer-link">Portfolio</a></li>
+                        <li class="footer-item"><a href="careers.html" class="footer-link">Careers</a></li>
+                        <li class="footer-item"><a href="contact.html" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h3 class="footer-heading">Our Services</h3>
+                    <ul class="footer-list">
+                        <li class="footer-item"><a href="services.html#software-development" class="footer-link">Custom Software Development</a></li>
+                        <li class="footer-item"><a href="services.html#mobile-web" class="footer-link">Mobile & Web Apps</a></li>
+                        <li class="footer-item"><a href="services.html#digital-marketing" class="footer-link">Digital Marketing</a></li>
+                        <li class="footer-item"><a href="services.html#recruitment" class="footer-link">Talent Recruitment</a></li>
+                        <li class="footer-item"><a href="services.html#sap-training" class="footer-link">SAP Training</a></li>
+                        <li class="footer-item"><a href="services.html#it-consulting" class="footer-link">IT Consulting</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Newsletter -->
+                <div>
+                    <h3 class="footer-heading">Subscribe for Updates</h3>
+                    <p>Get the latest insights, tips, and updates delivered to your inbox.</p>
+                    <form class="newsletter-form mt-4">
+                        <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 PiInnovate Software Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
