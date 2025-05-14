@@ -1,0 +1,157 @@
+.features-section {
+  padding: 4rem 0;
+}
+
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #212529;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  color: #6c757d;
+}
+
+.feature-item {
+  padding: 2rem 1.5rem;
+  border-radius: 10px;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+  height: 100%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.feature-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  color: var(--bs-primary);
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.feature-item:hover .feature-icon {
+  transform: scale(1.2);
+}
+
+.feature-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.feature-text {
+  color: #6c757d;
+}
+
+.services-section {
+  padding: 4rem 0;
+  background-color: #f8f9fa;
+}
+
+.testimonials-section {
+  padding: 4rem 0;
+  background-color: #ffffff;
+}
+
+.blog-section {
+  padding: 4rem 0;
+  background-color: #f8f9fa;
+}
+
+.cta-section {
+  padding: 4rem 0;
+  background-color: #ffffff;
+}
+
+.cta-content {
+  background: linear-gradient(to right, var(--bs-primary), #6610f2);
+  padding: 4rem 2rem;
+  border-radius: 15px;
+  color: #ffffff;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.cta-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.cta-text {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.cta-content .btn {
+  padding: 1rem 2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  background-color: #ffffff;
+  color: var(--bs-primary);
+  border: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.cta-content .btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 991.98px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .cta-title {
+    font-size: 2rem;
+  }
+  
+  .cta-content {
+    padding: 3rem 1.5rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .features-section,
+  .services-section,
+  .testimonials-section,
+  .blog-section,
+  .cta-section {
+    padding: 3rem 0;
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1rem;
+  }
+  
+  .feature-item {
+    padding: 1.5rem 1rem;
+  }
+  
+  .cta-title {
+    font-size: 1.75rem;
+  }
+  
+  .cta-text {
+    font-size: 1rem;
+  }
+  
+  .cta-content .btn {
+    padding: 0.75rem 1.5rem;
+  }
+}

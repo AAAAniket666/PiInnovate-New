@@ -1,0 +1,29 @@
+{
+  "name": "pi-innovate-backend",
+  "version": "1.0.0",
+  "description": "Backend for PI Innovate",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "cd ../frontend && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "seed": "node seed/services.js",
+    "destroy": "node seed/services.js -d"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongodb": "^6.16.0",
+    "mongoose": "^8.14.3"
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.1",
+    "nodemon": "^2.0.22"
+  }
+}

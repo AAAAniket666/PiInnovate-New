@@ -1,0 +1,30 @@
+:root {
+  /* Brand Colors */
+  --primary-yellow: #F5D061;
+  --accent-yellow: #E6AF2E;
+  --dark-blue: #282F44;
+  --light-gray: #ECECEC;
+  --white: #FFFFFF;
+
+  /* Functional Colors */
+  --primary-color: var(--primary-yellow);
+  --secondary-color: var(--accent-yellow);
+  --background-dark: var(--dark-blue);
+  --background-light: var(--light-gray);
+  --text-color: var(--dark-blue);
+  --text-light: var(--white);
+  
+  /* Bootstrap Overrides */
+  --bs-primary: var(--primary-yellow);
+  --bs-primary-rgb: 245, 208, 97;
+  --bs-secondary: var(--accent-yellow);
+  --bs-secondary-rgb: 230, 175, 46;
+  --bs-dark: var(--dark-blue);
+  --bs-dark-rgb: 40, 47, 68;
+  --bs-light: var(--light-gray);
+  --bs-light-rgb: 236, 236, 236;
+  
+  /* Shadow Colors */
+  --shadow-primary: rgba(245, 208, 97, 0.25);
+  --shadow-dark: rgba(40, 47, 68, 0.15);
+}
